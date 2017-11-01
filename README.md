@@ -5,6 +5,9 @@ This code will only read and plot the data provided by a simulation.  The simula
 
 ## Organization
 Paramaters are read in using Read_para.pro
+
+Coordinates are read in and the grid is constructed using Read_coord.pro
+
 Other aspects still in development, subject to change
 
 ## Contact
