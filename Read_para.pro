@@ -13,12 +13,13 @@ COMMON parameters,$
 
 ;Set file path-------------------------------------
 dir_root='/Users/jama3001/Data/' ;Base folder
-filenom= '2017-Tue-Oct-24/pluto-1/'  ;Date and run number
+filenom= '2017-Wed-Nov-01/pluto-5/'  ;Date and run number
 dir=dir_root + filenom
 full_path=dir +'databig/para.dat' ;Parameter file
 ;--------------------------------------------------
 
 ;Define variable types-----------------------------
+para_dat_version=0
 nx=0l & ny=0l &  nz=0l
 comm_sz=0l & nproc_up=0l  & nproc_down= 0l
 dx=0. & dy=0. & delZ=0. & BIG_delz=0.
@@ -50,6 +51,7 @@ part_nout=0l
 ;Read Variables------------------------------------
 close,1
 openr,1,full_path,/f77_unformatted
+      readu,1,para_dat_version
       readu,1,nx,ny,nz,dx,dy,delz
       readu,1,nt,dtsub_init,ntsub,dt,nout
       readu,1,out_dir
