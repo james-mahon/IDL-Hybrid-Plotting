@@ -1,4 +1,4 @@
-pro Read_coord
+pro Read_coord,nx,ny,nz,x,y,z,dz_grid,dz_cell
 ;Set file path-------------------------------------
 dir_root='/Users/jama3001/Data/' ;Base folder (User specific)
 filenom= '2017-Wed-Nov-01/pluto-5/'  ;Date and run number (Dynamic)
