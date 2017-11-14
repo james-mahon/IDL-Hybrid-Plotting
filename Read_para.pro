@@ -12,10 +12,10 @@ COMMON parameters,$
 ;--------------------------------------------------
 
 ;Set file path-------------------------------------
-dir_root='/Users/jama3001/Data/' ;Base folder
-filenom= '2017-Wed-Nov-01/pluto-5/'  ;Date and run number
+dir_root='/Users/jama3001/Data/' ;Base folder (User specific)
+filenom= '2017-Wed-Nov-01/pluto-5/'  ;Date and run number (Dynamic)
 dir=dir_root + filenom
-full_path=dir +'databig/para.dat' ;Parameter file
+full_path=dir +'databig/para.dat' ;Parameter file (Static)
 ;--------------------------------------------------
 
 ;Define variable types-----------------------------
