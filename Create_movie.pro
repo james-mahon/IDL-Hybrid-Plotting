@@ -230,7 +230,7 @@ XINTERANIMATE, SET=[xsz,ysz, nframe], /SHOWLOAD
 ;--------------------------------------------------
 
 ;Set directory-------------------------------------
-dir = '/Users/jama3001/Data/2017-Thu-Dec-07/pluto-3/databig/grid/'
+dir = dir_root + filenom + 'databig/grid/'
 ;--------------------------------------------------
 
 ;Read variables------------------------------------

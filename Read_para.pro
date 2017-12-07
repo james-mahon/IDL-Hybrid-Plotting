@@ -9,7 +9,8 @@ COMMON parameters,$
   b0_init,$
   nf_init,$
   vsw,vth,$
-  RIo
+  RIo,$
+  dir_root,filenom
 ;--------------------------------------------------
 
 ;Set file path-------------------------------------
