@@ -276,6 +276,7 @@ for nfrm = 1,nframe do begin
 ;--------------------------------------------------
 
 ;Disc plotting-------------------------------------
+  Rio_km = Rio
   CX_center = max(x) - (shift_R * Rio_km)
   CY_center = shift_y * max(y)
   print,'************************************************************'
@@ -288,7 +289,6 @@ for nfrm = 1,nframe do begin
   print,'minmax (Y)(km)=',min(Y),max(Y),' Rio=',min(Y)/Rio_km,max(Y)/Rio_km
   print,'************************************************************'
     theta = findgen(360)
-    Rio = Rio_km
     cx = CX_center/Rio + cos(theta*!dtor)
     cy = CY_center/Rio + sin(theta*!dtor)
 ;--------------------------------------------------

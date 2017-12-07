@@ -8,12 +8,13 @@ COMMON parameters,$
   alpha,beta,$
   b0_init,$
   nf_init,$
-  vsw,vth
+  vsw,vth,$
+  RIo
 ;--------------------------------------------------
 
 ;Set file path-------------------------------------
 dir_root='/Users/jama3001/Data/' ;Base folder (User specific)
-filenom= '2017-Wed-Nov-01/pluto-5/'  ;Date and run number (Dynamic)
+filenom= '2017-Thu-Dec-07/pluto-3/'  ;Date and run number (Dynamic)
 dir=dir_root + filenom
 full_path=dir +'databig/para.dat' ;Parameter file (Static)
 ;--------------------------------------------------
