@@ -315,7 +315,7 @@ for nfrm = 1,nframe do begin
 ;Create movie with 4 windows-----------------------
   !p.multi=[0,2,2]
   loadct,39,/silent
-  im_clip=ntot/1e15
+  im_clip=ntot2d/1e15
   img_cont,bytscl(im_clip),x/Rio,y/Rio,dx,dy,nfrm
   
   loadct,0,/silent
