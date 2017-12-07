@@ -322,24 +322,25 @@ for nfrm = 1,nframe do begin
   oplot,cx,cy,psym = 1,color = 255,symsize = 0.5
   
   loadct,39,/silent
-  my_colorbar, range = [min(im_clip),max(im_clip)],$
-    position=[!y.window(0),!x.window(1)+0.01, !y.window(1), $
-              !x.window(1)+0.03],$
-    ncolors = 254,/vertical,/right,$
-    title='density (cc)',$
-    charsize=1.4,yaxis=1,minor=0
+  ;TODO: Investigate why color bars aren't working
+  ;my_colorbar, range = [min(im_clip),max(im_clip)],$
+  ;  position=[!y.window(0),!x.window(1)+0.01, !y.window(1), $
+  ;            !x.window(1)+0.03],$
+  ;  ncolors = 254,/vertical,/right,$
+  ;  title='density (cc)',$
+  ;  charsize=1.4,yaxis=1,minor=0
     
   img_cont,bytscl(ti2d),x/RIo,y/RIo,dx,dy,nfrm
   
   loadct,0,/silent
   oplot,cx,cy,psym=1,thick=1,color=255,symsize=0.5
   
-  my_colorbar, range=[min(ti2d),max(ti2d)],$
-    position=[!y.window(0), !x.window(1)+0.01, !y.window(1), $
-                   !x.window(1)+0.03],$
-    ncolors=254,/vertical,/right,$
-    title = 'ion temperature (eV)',$
-    charsize=1.4,yaxis=1,minor=0
+  ;my_colorbar, range=[min(ti2d),max(ti2d)],$
+  ;  position=[!y.window(0), !x.window(1)+0.01, !y.window(1), $
+  ;                 !x.window(1)+0.03],$
+  ;  ncolors=254,/vertical,/right,$
+  ;  title = 'ion temperature (eV)',$
+  ;  charsize=1.4,yaxis=1,minor=0
     
   JUMP_PASS1:
 ;--------------------------------------------------
@@ -348,6 +349,7 @@ for nfrm = 1,nframe do begin
   loadct,39,/silent
   
   print,'  PLOT VELCOCITY but  check max/min Uf2dx=',max(uf2dx),min(uf2dx)
+  
   if (answer_v_sat eq 'y') then begin
     print,'PRESCRIBED saturation of velocity at Vsat=',vsat
     print,' but  nfrm  check max/min Uf2dx=',nfrm , max(uf2dx),min(uf2dx)
@@ -364,12 +366,12 @@ for nfrm = 1,nframe do begin
   oplot,cx,cy,psym=1,thick=1,color=255,symsize=0.5
   
   loadct,39,/silent
-  my_colorbar,position=[!y.window(0), !x.window(1)+0.01, !y.window(1), $
-                      !x.window(1)+0.03],ncolors=255,/vertical,/right,$
-            minrange=[min(abs(-uf2dx))],$
-            maxrange=[max(abs(-uf2dx))],$
-            divisions=4,title='flow velocity VX (km/s)',$
-            charsize=1.4
+  ;my_colorbar,position=[!y.window(0), !x.window(1)+0.01, !y.window(1), $
+  ;                    !x.window(1)+0.03],ncolors=255,/vertical,/right,$
+  ;          minrange=[min(abs(-uf2dx))],$
+  ;          maxrange=[max(abs(-uf2dx))],$
+  ;          divisions=4,title='flow velocity VX (km/s)',$
+  ;          charsize=1.4
 ;--------------------------------------------------
 
 ;Plotting Flowlines--------------------------------
@@ -461,12 +463,12 @@ for nfrm = 1,nframe do begin
   oplot,cx,cy,psym=1,thick=1,color=255,symsize=0.5
   
   loadct,39,/silent
-  my_colorbar,position=[!y.window(0), !x.window(1)+0.01, !y.window(1), $
-                        !x.window(1)+0.03],ncolors=255,/vertical,/right,$
-         minrange=[min(abs(b12d_tot))],$
-         maxrange=[max(abs(b12d_tot))],divisions=4,$
-         title='BZ (nT)',$
-         charsize=1.4
+  ;my_colorbar,position=[!y.window(0), !x.window(1)+0.01, !y.window(1), $
+  ;                      !x.window(1)+0.03],ncolors=255,/vertical,/right,$
+  ;       minrange=[min(abs(b12d_tot))],$
+  ;       maxrange=[max(abs(b12d_tot))],divisions=4,$
+  ;       title='BZ (nT)',$
+  ;       charsize=1.4
          
   JUMP_PASS_COLORBAR:
   JUMP_B:
