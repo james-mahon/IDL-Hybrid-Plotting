@@ -3,7 +3,7 @@ pro Read_scalar,dir,file,numframe,xy,xz
   common parameters
   
   ;Open file-----------------------------------------
-  close 1
+  close,1
   fullpath = dir+file+'.dat'
   openr,1,fullpath,/f77_unformatted
   ;--------------------------------------------------
@@ -24,7 +24,7 @@ pro Read_scalar,dir,file,numframe,xy,xz
   endwhile
   ;--------------------------------------------------
   
-  print 'image # ', frame
+  print,'image # ', frame
   
   close,1
   
