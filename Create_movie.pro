@@ -230,7 +230,7 @@ XINTERANIMATE, SET=[xsz,ysz, nframe], /SHOWLOAD
 ;--------------------------------------------------
 
 ;Set directory-------------------------------------
-dir = '/Users/jama3001/Data/2017-Wed-Nov-01/pluto-5/databig/grid/'
+dir = '/Users/jama3001/Data/2017-Thu-Dec-07/pluto-3/databig/grid/'
 ;--------------------------------------------------
 
 ;Read variables------------------------------------
@@ -238,10 +238,11 @@ nt = 10 ;TODO: Temp values, need to update
 
 for nfrm = 1,nframe do begin
   print,'Frame: ',nfrm
-  Read_scalar, dir, 'c.np_'+strtrim(string(proc_read),2),    nfrm,np_xy,np_xz ;bulk particle density
-  Read_vector, dir, 'c.up_'+strtrim(string(proc_read),2),    nfrm,up_xy,up_xz ;bulk particle velocity
-  Read_scalar, dir, 'c.temp_p_'+strtrim(string(proc_read),2),nfrm,tp_xy,tp_xz ;temp
-  Read_vector, dir, 'c.b1_'+strtrim(string(proc_read),2),    nfrm,b1_xy,b1_xz ;b field
+  ;string(input,FORMAT='(I2.1)')
+  Read_scalar, dir, 'c.np_3d_'+strtrim(string(proc_read,format='(I2.1)'),2),    nfrm,np_xy,np_xz ;bulk particle density
+  Read_vector, dir, 'c.up_3d_'+strtrim(string(proc_read,format='(I2.1)'),2),    nfrm,up_xy,up_xz ;bulk particle velocity
+  Read_scalar, dir, 'c.temp_p_3d_'+strtrim(string(proc_read,format='(I2.1)'),2),nfrm,tp_xy,tp_xz ;temp
+  Read_vector, dir, 'c.b1_3d_'+strtrim(string(proc_read,format='(I2.1)'),2),    nfrm,b1_xy,b1_xz ;b field
 ;--------------------------------------------------
 
 ;TODO: Not sure------------------------------------
