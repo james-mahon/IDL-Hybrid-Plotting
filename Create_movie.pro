@@ -350,14 +350,15 @@ for nfrm = 1,nframe do begin
   
   print,'  PLOT VELCOCITY but  check max/min Uf2dx=',max(uf2dx),min(uf2dx)
   
-  if (answer_v_sat eq 'y') then begin
-    print,'PRESCRIBED saturation of velocity at Vsat=',vsat
-    print,' but  nfrm  check max/min Uf2dx=',nfrm , max(uf2dx),min(uf2dx)
-    if(nfrm eq nframe) then begin   ; for the last plot
-       WT= where (uf2dx lt vsat)
-        uf2dx(wT)=0.
-       endif
-    endif
+  ;TODO: commented out if block.  Function?
+  ;if (answer_v_sat eq 'y') then begin
+  ;  print,'PRESCRIBED saturation of velocity at Vsat=',vsat
+  ;  print,' but  nfrm  check max/min Uf2dx=',nfrm , max(uf2dx),min(uf2dx)
+  ;  if(nfrm eq nframe) then begin   ; for the last plot
+  ;     WT= where (uf2dx lt vsat)
+  ;      uf2dx(wT)=0.
+  ;     endif
+  ;  endif
     
   img_cont,bytscl(uf2dx),x/RIo,y/RIo,dx,dy,nfrm
   
