@@ -240,7 +240,6 @@ dir = dir_root + filenom + 'databig/grid/'
 ;--------------------------------------------------
 
 ;Read variables------------------------------------
-nt = 10 ;TODO: Temp values, need to update
 
 for nfrm = 1,nframe do begin
   print,'Frame: ',nfrm
