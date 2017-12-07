@@ -203,6 +203,7 @@ device,decompose=0
 ;Questions-----------------------------------------
 answer_diversion='  '
 READ,'Compute diversion from many flowlines (y/n)?', answer_diversion
+answer_sat = ' '
 ;--------------------------------------------------
 
 ;Reading parameters and coordinates----------------
@@ -448,6 +449,8 @@ for nfrm = 1,nframe do begin
     endfor
   JUMP_PASS:
   
+  ;TODO: Currently forcing m_bkg
+  m_bkg = 15.975128
   mo = m_bkg * 1.6726e-27
   
   b2dx = b2dx * Mo /1.6e-19 / 1e-9
@@ -492,7 +495,7 @@ for nfrm = 1,nframe do begin
   print,'     minmax(ufx) (km/s)= ',min(uf2dx),max(uf2dx)
   print,'     minmax(bz) (nT)= ',min(b12d_tot),max(b12d_tot)
   print,'DISC SHIFTED shift_r(Rio)=?',shift_R
-  print,'   center Cx/y_center(Reur)=',CX_center/Rio_km, Cy_center/Rio_km
+  print,'   center Cx/y_center(Reur)=',CX_center/Rio, Cy_center/Rio
   print,'***********************************************************'
   print,'  '
   print,'  '
