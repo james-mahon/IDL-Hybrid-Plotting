@@ -216,7 +216,7 @@ cz = gz(nnz-1)/2.
 print,'Center of the vertical grid in km ',cz
 
 middle_proc_bot = num_proc/2+1 ;central processor counted from below
-proc_read=1+numproc-middle_proc_bot;output file number
+proc_read=1+num_proc-middle_proc_bot;output file number
 gz_proc_base=z(nz-1) * (middle_proc_bot-1) + z(1) - (middle_proc_bot-1) * dz
 
 zslc = 0
@@ -225,6 +225,7 @@ zslc = 0
 ;Prepare window for animation----------------------
 xsz = 1600
 ysz = 1000
+nframe = 100
 XINTERANIMATE, SET=[xsz,ysz, nframe], /SHOWLOAD
 ;--------------------------------------------------
 
@@ -233,15 +234,14 @@ dir = '/Users/jama3001/Data/2017-Wed-Nov-01/pluto-5/databig/grid/'
 ;--------------------------------------------------
 
 ;Read variables------------------------------------
-nframe = 100
-nt = 10 ;Temp values, need to update
+nt = 10 ;TODO: Temp values, need to update
 
 for nfrm = 1,nframe do begin
   print,'Frame: ',nfrm
-  Read_scalar, dir, 'c.np_'+strtrim(string(procnum),2),    nfrm,np_xy,np_xz ;bulk particle density
-  Read_vector, dir, 'c.up_'+strtrim(string(procnum),2),    nfrm,up_xy,up_xz ;bulk particle velocity
-  Read_scalar, dir, 'c.temp_p_'+strtrim(string(procnum),2),nfrm,tp_xy,tp_xz ;temp
-  Read_vector, dir, 'c.b1_'+strtrim(string(procnum),2),    nfrm,b1_xy,b1_xz ;b field
+  Read_scalar, dir, 'c.np_'+strtrim(string(proc_read),2),    nfrm,np_xy,np_xz ;bulk particle density
+  Read_vector, dir, 'c.up_'+strtrim(string(proc_read),2),    nfrm,up_xy,up_xz ;bulk particle velocity
+  Read_scalar, dir, 'c.temp_p_'+strtrim(string(proc_read),2),nfrm,tp_xy,tp_xz ;temp
+  Read_vector, dir, 'c.b1_'+strtrim(string(proc_read),2),    nfrm,b1_xy,b1_xz ;b field
 ;--------------------------------------------------
 
 ;TODO: Not sure------------------------------------
