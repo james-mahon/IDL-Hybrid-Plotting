@@ -276,17 +276,16 @@ for nfrm = 1,nframe do begin
 ;--------------------------------------------------
 
 ;Disc plotting-------------------------------------
-  Rio_km = Rio
   CX_center = max(x) - (shift_R * Rio_km)
   CY_center = shift_y * max(y)
   print,'************************************************************'
   print,'DISC LOCATION'
   print,'*************'
   print,'SHIFT OF DISC SHIFT_R from outflow boundary(Rio)=',SHIFT_R
-  print,'CX_center= max(X)-(shift_R*Rio): max(X)(Rio)=',MAX(X)/Rio_km
-  print,'CENTER OF DISC XY from box center(km/Rio)=',CX_center,CY_center,CX_center/Rio_km,CY_center/Rio_km
-  print,'minmax (x)(km)=',min(x),max(x),' Rio=',min(x)/Rio_km ,max(x)/Rio_km
-  print,'minmax (Y)(km)=',min(Y),max(Y),' Rio=',min(Y)/Rio_km,max(Y)/Rio_km
+  print,'CX_center= max(X)-(shift_R*Rio): max(X)(Rio)=',MAX(X)/Rio
+  print,'CENTER OF DISC XY from box center(km/Rio)=',CX_center,CY_center,CX_center/Rio,CY_center/Rio
+  print,'minmax (x)(km)=',min(x),max(x),' Rio=',min(x)/Rio ,max(x)/Rio
+  print,'minmax (Y)(km)=',min(Y),max(Y),' Rio=',min(Y)/Rio,max(Y)/Rio
   print,'************************************************************'
     theta = findgen(360)
     cx = CX_center/Rio + cos(theta*!dtor)
@@ -407,19 +406,19 @@ for nfrm = 1,nframe do begin
       r1 = sqrt((xx1-CX_CENTER)^2 + (yy1-CY_CENTER)^2)
       
       IF(answer_diversion eq 'y') then begin
-        IF (r1 le Rio_km) then begin ; to stop fwl that hit Io
+        IF (r1 le Rio) then begin ; to stop fwl that hit Io
           print,'FWL l hit IO ',l
           print,'     #fwl, Yres(km)=',lmax,dy
           print,'    XX0, YY0   =',XX0,YY0
           print,'    XX1 , YY1 ,r1 hit( km)=',XX1,YY1,r1
-          print,'    XX1 , YY1 ,r1 hit(rio)=',XX1/Rio_km,YY1/Rio_km,r1/Rio_km
+          print,'    XX1 , YY1 ,r1 hit(rio)=',XX1/Rio,YY1/Rio,r1/Rio
           GOTO,JUMP_OTHER_FWL
         endif
       ENDIF
       
       if(uxx le 1.) then begin ; there I am sure that the flow is very slow at 1km/s
         print,' WARNING, FWL#',l,'  UX IS <1km/s or NEGATIVE  reflection or on disc?'
-        print,'              xx,yy, r (Rio)=',xx/Rio_km,yy/Rio_km,r/Rio_km
+        print,'              xx,yy, r (Rio)=',xx/Rio,yy/Rio,r/Rio
         print,'              uxx,uyy (km/s)=',uxx,uyy
         GOTO,JUMP_OTHER_FWL
       endif
