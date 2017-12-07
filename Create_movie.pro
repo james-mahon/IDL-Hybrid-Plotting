@@ -276,7 +276,7 @@ for nfrm = 1,nframe do begin
 ;--------------------------------------------------
 
 ;Disc plotting-------------------------------------
-  CX_center = max(x) - (shift_R * Rio_km)
+  CX_center = max(x) - (shift_R * Rio)
   CY_center = shift_y * max(y)
   print,'************************************************************'
   print,'DISC LOCATION'
