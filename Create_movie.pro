@@ -200,6 +200,11 @@ device,decompose=0
 !p.multi=[0,1,1]
 ;--------------------------------------------------
 
+;Questions-----------------------------------------
+answer_diversion='  '
+READ,'Compute diversion from many flowlines (y/n)?', answer_diversion
+;--------------------------------------------------
+
 ;Reading parameters and coordinates----------------
 common parameters
 print,'First need to run Read_para.pro'
