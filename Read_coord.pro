@@ -7,6 +7,7 @@ full_path=dir +'databig/c.coord.dat' ;Coordinate file (Static)
 ;--------------------------------------------------
 
 ;Read domain dimensions-----------------------------
+close,11
 nx=0l
 ny=0l
 nz=0l
