@@ -424,7 +424,7 @@ for nfrm = 1,nframe do begin
       endif
       
       if((l eq 471) or (l eq 270)) then begin
-        plots,[[xx,xx1]/RIo,[yy,yy1]/Rio,/data,thick=2.0,linestyle=0,color=255
+        plot,[xx,xx1]/RIo,[yy,yy1]/Rio,/data,thick=2.0,linestyle=0,color=255
       endif
       
       xx = xx1
@@ -446,7 +446,7 @@ for nfrm = 1,nframe do begin
   b12d_tot = b2dz
   ;TODO: what is b12d_tot?
   
-  if (answer_sat eq 'y') thenbegin
+  if (answer_sat eq 'y') then begin
     WB = where(b12d_tot ge 401)
     b12d_tot(WB) = 401.
   endif
