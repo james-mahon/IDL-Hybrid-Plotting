@@ -493,9 +493,9 @@ xinteranimate,/keep_pixmaps
 
 print,'WARNING contour plot might not be equatorail plane'
 print,'----------------------------------------------------'
-print,' total number of processors comm_sz=',comm_sz
+print,' total number of processors comm_sz=',num_proc
 print,'   equatorial plane  global coord cz (km)=',cz
-print,'   middle procfrom bottom & hybrid middle proc(from top) output to be read=',proc_bot_middle,procnum
+print,'   middle procfrom bottom & hybrid middle proc(from top) output to be read=',middle_proc_bot,proc_read
 print,'   base (nz=2 fortran)  of middle processor (km)=',gz_proc_base
 
 return
