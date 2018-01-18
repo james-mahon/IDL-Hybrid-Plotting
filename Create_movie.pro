@@ -194,6 +194,11 @@ pro Create_movie
 
 close,1
 
+;Forced Variables----------------------------------
+;  Shift_R, shift_y
+;  m_bkg
+;--------------------------------------------------
+
 ;Plot settings-------------------------------------
 device,decompose=0
 !p.CHARSIZE=1.2
@@ -250,7 +255,7 @@ for nfrm = 1,nframe do begin
   Read_vector, dir, 'c.b1_3d_'+strtrim(string(proc_read,format='(I2.1)'),2),    nfrm,b1_xy,b1_xz ;b field
 ;--------------------------------------------------
 
-;TODO: Not sure------------------------------------
+;Create velocity array-----------------------------
   uf=up_xy
   uf2d = reform(uf(*,*,*))
   uf2d2 = sqrt(uf2d(*,*,0)^2 + uf2d(*,*,1)^2 + uf2d(*,*,2)) ;total 3d speed in the xy plane
@@ -281,7 +286,6 @@ for nfrm = 1,nframe do begin
 ;--------------------------------------------------
 
 ;Disc plotting-------------------------------------
-  ;TODO: shift_R, shift_y is forced
   shift_R = 1
   shift_y = 1
   CX_center = max(x) - (shift_R * Rio)
@@ -448,7 +452,6 @@ for nfrm = 1,nframe do begin
     endfor
   JUMP_PASS:
   
-  ;TODO: Currently forcing m_bkg
   m_bkg = 15.975128
   mo = m_bkg * 1.6726e-27
   
@@ -457,12 +460,11 @@ for nfrm = 1,nframe do begin
   b2dz = b2dz * Mo /1.6e-19 / 1e-9
   
   b12d_tot = b2dz
-  ;TODO: what is b12d_tot?
   
-  if (answer_sat eq 'y') then begin
-    WB = where(b12d_tot ge 401)
-    b12d_tot(WB) = 401.
-  endif
+  ;if (answer_sat eq 'y') then begin
+  ;  WB = where(b12d_tot ge 401)
+  ;  b12d_tot(WB) = 401.
+  ;endif
   
   img_cont,bytscl(b12d_tot),x/RIo,y/RIo,dx,dy,nfrm
   
