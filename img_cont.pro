@@ -91,7 +91,8 @@ pro img_cont, a, x, y,dx,dy,nfrm, WINDOW_SCALE = window_scale, $
   ;x1=strtrim(dx,1) & c1=strmid(x1,0,6)
   x1=strtrim(dx,1) & x1=strmid(x1,0,4)
   y1=strtrim(dy,1) & y1=strmid(y1,0,4)
-
+  
+  ;This contour draws the axes and title, and shifts the graphs to not overlap
   contour,[[0,0],[1,1]],/nodata, xstyle=1, ystyle = 1,$
     title='HORIZONTAL CUT BUT NOT AT EQUAT PLANE!!!',$
     ;            ytitle='y (60 km)',xtitle='x (60 km)',$
@@ -100,9 +101,9 @@ pro img_cont, a, x, y,dx,dy,nfrm, WINDOW_SCALE = window_scale, $
     xrange=[min(x),max(x)],yrange=[min(y),max(y)],$ ; display in RIo DOLS 1/11/13
     ;            title='t = '+strmid(strtrim(string(0.5*nfrm*100.),2),0,6) + ' (s)',$
     /isotropic
+    
   ;            xrange=[min(x),800],yrange=[min(y),max(y)+1]
   p1 = !P & x1 = !X & y1= !Y
-
   px = !x.window * !d.x_vsize ;Get size of window in device units
   py = !y.window * !d.y_vsize
   swx = px(1)-px(0)   ;Size in x in device units
@@ -121,12 +122,12 @@ pro img_cont, a, x, y,dx,dy,nfrm, WINDOW_SCALE = window_scale, $
     print,max(a)
     tv,a,px(0),py(0),xsize = swx, ysize = swy, /device
 
-
   endif else begin  ;Not scalable pixels
     if keyword_set(window_scale) then begin ;Scale window to image?
       tv,a,px(0),py(0)  ;Output image
       swx = six   ;Set window size from image
       swy = siy
+      stop
     endif else begin    ;Scale window
       if keyword_set(aspect) then begin
         if f ge 1.0 then swy = swy / f else swx = swx * f
@@ -169,8 +170,6 @@ pro img_cont, a, x, y,dx,dy,nfrm, WINDOW_SCALE = window_scale, $
   ;!p.multi=[0,1,2]
 
   !P = p1 & !X = x1 & !Y = y1
-
-  ;contour,[[0,0],[1,1]],/nodata, xstyle=1, ystyle = 1,/noerase
 
   if keyword_set(postscript) then begin
     device,/close

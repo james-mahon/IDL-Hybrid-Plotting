@@ -47,7 +47,7 @@ ysz = 1000
 nframe = 100
 XINTERANIMATE, SET=[xsz,ysz, nframe], /SHOWLOAD
 ;--------------------------------------------------
-
+;
 ;Set directory-------------------------------------
 dir = dir_root + filenom + 'databig/grid/'
 ;--------------------------------------------------
@@ -133,20 +133,20 @@ for nfrm = 1,nframe do begin
   !p.multi=[0,2,2]
   loadct,39,/silent
   im_clip=ntot2d/1e15
+  
   img_cont,bytscl(im_clip),x/Rio,y/Rio,dx,dy,nfrm
   
-  loadct,0,/silent
+  ;loadct,0,/silent
   oplot,cx,cy,psym = 1,color = 255,symsize = 0.5
   
-  loadct,39,/silent
-  ;TODO: Investigate why color bars aren't working
-  ;my_colorbar, range = [min(im_clip),max(im_clip)],$
-  ;  position=[!y.window(0),!x.window(1)+0.01, !y.window(1), $
-  ;            !x.window(1)+0.03],$
-  ;  ncolors = 254,/vertical,/right,$
-  ;  title='density (cc)',$
-  ;  charsize=1.4,yaxis=1,minor=0
-    
+  ;loadct,39,/silent
+  ;mycolorbar. range = [min(im_clip),max(im_clip)],$
+    ;position=[!y.window(0),!x.window(1)+0.01, !y.window(1), $
+    ;          !x.window(1)+0.03],$
+    ;ncolors = 254,/vertical,/right,$
+    ;title='density (cc)',$
+    ;charsize=1.4,yaxis=1,minor=0)
+   
   img_cont,bytscl(ti2d),x/RIo,y/RIo,dx,dy,nfrm
   
   loadct,0,/silent
@@ -167,7 +167,6 @@ for nfrm = 1,nframe do begin
   
   print,'  PLOT VELCOCITY but  check max/min Uf2dx=',max(uf2dx),min(uf2dx)
   
-  ;TODO: commented out if block.  Function?
   ;if (answer_v_sat eq 'y') then begin
   ;  print,'PRESCRIBED saturation of velocity at Vsat=',vsat
   ;  print,' but  nfrm  check max/min Uf2dx=',nfrm , max(uf2dx),min(uf2dx)
@@ -176,7 +175,7 @@ for nfrm = 1,nframe do begin
   ;      uf2dx(wT)=0.
   ;     endif
   ;  endif
-    
+  
   img_cont,bytscl(uf2dx),x/RIo,y/RIo,dx,dy,nfrm
   
   loadct,0,/silent
