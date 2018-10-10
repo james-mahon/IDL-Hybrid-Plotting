@@ -15,9 +15,9 @@ COMMON parameters,$
 
 ;Set file path-------------------------------------
 dir_root='/Users/jama3001/Data/' ;Base folder (User specific)
-filenom= '2017-Thu-Dec-07/pluto-3/'  ;Date and run number (Dynamic)
+filenom= '2018-Wed-Oct-10/pluto-4/'  ;Date and run number (Dynamic)
 dir=dir_root + filenom
-full_path=dir +'databig/para.dat' ;Parameter file (Static)
+full_path=dir +'data/para.dat' ;Parameter file (Static)
 ;--------------------------------------------------
 
 ;Define variable types-----------------------------
@@ -48,6 +48,7 @@ nu_init_frac=0.
 mrestart=0l
 ri0=0.0
 part_nout=0l
+
 ;--------------------------------------------------
 
 ;Read Variables------------------------------------
@@ -55,7 +56,9 @@ close,1
 openr,1,full_path,/f77_unformatted
       readu,1,para_dat_version
       readu,1,nx,ny,nz,dx,dy,delz
+      PRINT, nx, ny
       readu,1,nt,dtsub_init,ntsub,dt,nout
+      print, nt, nout
       readu,1,out_dir
       readu,1,vtop,vbottom
       readu,1,Ni_max

@@ -1,9 +1,10 @@
-pro Read_coord,nx,ny,nz,x,y,z,dz_grid,dz_cell
+pro Read_coord,x,y,z,dz_grid,dz_cell
 ;Set file path-------------------------------------
-dir_root='/Users/jama3001/Data/' ;Base folder (User specific)
-filenom= '2017-Wed-Nov-01/pluto-5/'  ;Date and run number (Dynamic)
+common parameters
+;dir_root='/Users/jama3001/Data/' ;Base folder (User specific)
+;filenom= '2018-Wed-Oct-10/pluto-4/'  ;Date and run number (Dynamic)
 dir=dir_root + filenom
-full_path=dir +'databig/c.coord.dat' ;Coordinate file (Static)
+full_path=dir +'data/c.coord.dat' ;Coordinate file (Static)
 ;--------------------------------------------------
 
 ;Read domain dimensions-----------------------------

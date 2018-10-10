@@ -24,7 +24,7 @@ common parameters
 print,'First need to run Read_para.pro'
 read,'How many processors?',num_proc
 
-Read_coord,nx,ny,nz,x,y,z,dz_grid,dz_cell
+Read_coord,x,y,z,dz_grid,dz_cell
 ;--------------------------------------------------
 
 ;Compute center processor--------------------------
@@ -44,12 +44,12 @@ zslc = 0
 ;Prepare window for animation----------------------
 xsz = 1600
 ysz = 1000
-nframe = 100
+nframe = 5
 XINTERANIMATE, SET=[xsz,ysz, nframe], /SHOWLOAD
 ;--------------------------------------------------
 ;
 ;Set directory-------------------------------------
-dir = dir_root + filenom + 'databig/grid/'
+dir = dir_root + filenom + 'data/grid/'
 ;--------------------------------------------------
 
 ;Read variables------------------------------------
